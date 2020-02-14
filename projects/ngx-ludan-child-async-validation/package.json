@@ -1,0 +1,11 @@
+{
+  "name": "ngx-ludan-child-async-validation",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/cdk": "^9.0.0",
+    "@angular/material": "^9.0.0",
+    "@angular/common": "^9.0.1",
+    "@angular/core": "^9.0.1",
+    "tslib": "^1.10.0"
+  }
+}

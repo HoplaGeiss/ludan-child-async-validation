@@ -2,9 +2,11 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  template: `
+    <main>
+      <ngx-ludan-child-async-validation></ngx-ludan-child-async-validation>
+    </main>
+  `,
 })
-export class AppComponent {
-  title = 'ludan-child-async-validation';
-}
+export class AppComponent {}

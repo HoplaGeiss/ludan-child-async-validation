@@ -17,7 +17,13 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ngx-ludan-child-async-validation": [
+        "dist/ngx-ludan-child-async-validation/ngx-ludan-child-async-validation",
+        "dist/ngx-ludan-child-async-validation"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
