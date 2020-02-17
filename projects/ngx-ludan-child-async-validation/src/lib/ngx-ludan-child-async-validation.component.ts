@@ -9,7 +9,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
       <h2>Main Form</h2>
       <form [formGroup]="form">
         <mat-form-field appearance="standard">
-          <mat-label>Family</mat-label>
+          <mat-label>Country</mat-label>
           <input matInput formControlName="country" />
         </mat-form-field>
         <ngx-email-input formControlName="email"></ngx-email-input>
@@ -30,7 +30,7 @@ export class NgxLudanChildAsyncValidationComponent implements OnInit {
   ngOnInit(): void {
     this.form = this.fb.group({
       country: ['Alsace'],
-      email: [''],
+      email: ['john@smith.co.uk'],
     });
   }
 }

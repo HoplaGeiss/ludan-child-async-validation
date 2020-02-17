@@ -9,8 +9,8 @@ import {
   ValidationErrors,
   Validators,
 } from '@angular/forms';
-import { Observable, Subject } from 'rxjs';
-import { filter, map, take, takeUntil, tap } from 'rxjs/operators';
+import { Observable, of, Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 import { ValidateEmailNotTaken } from './async-email.validator';
 import { EmailService } from './email.service';
@@ -70,7 +70,6 @@ export class EmailInputComponent
 
   writeValue(value: string): void {
     if (value !== null) {
-      console.log('writeValue');
       this.emailCtrl.setValue(value);
     }
   }
@@ -84,18 +83,11 @@ export class EmailInputComponent
   registerOnTouched() {}
 
   validate(control: AbstractControl): Observable<ValidationErrors | null> {
-    return this.emailCtrl.statusChanges.pipe(
-      tap(status => console.log(status)),
-      filter(status => status !== 'PENDING'),
-      map(status => {
-        if (status === 'VALID') {
-          return null;
-        } else {
-          return this.emailCtrl.errors;
-        }
-      }),
-      take(1)
-    );
+    if (this.emailCtrl.invalid) {
+      return of(this.emailCtrl.errors);
+    } else {
+      return ValidateEmailNotTaken.createValidator(this.emailService)(control);
+    }
   }
 
   get pending() {
